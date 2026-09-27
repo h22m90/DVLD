@@ -1,0 +1,180 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL
+{
+    public class UserData
+    {
+        public static DataTable GetAllUsers()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"SELECT Users.UserID, Users.UserName, Users.IsActive, People.FirstName,
+                                    People.SecondName, People.ThirdName, People.LastName, People.Gender,
+                                    People.Phone,  Countries.CountryName, People.ImagePath
+                                    FROM     Users INNER JOIN
+                                              People ON Users.PersonID = People.PersonID INNER JOIN
+                                              Countries ON People.NationalityCountryID = Countries.CountryID;";
+                // Ensure connection is opened before executing the command
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+            return dt;
+        }
+        public static int AddNew(int PersonID, string UserName, string Password, bool IsActive)
+        {
+            int NewUserID = -1;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"INSERT INTO Users(PersonID, UserName, Password, IsActive) 
+                                    VALUES(@PersonID, @UserName, @Password, @IsActive)
+                                    SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+                    command.Parameters.AddWithValue("@UserName", UserName);
+                    command.Parameters.AddWithValue("@Password", Password);
+                    command.Parameters.AddWithValue("@IsActive", IsActive);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                        NewUserID = (int)result;
+                }
+            }
+            return NewUserID;
+        }
+        public static bool Update(int UserID, int PersonID, string UserName, string Password, bool IsActive)
+        {
+            bool IsUpdated = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"UPDATE Users SET PersonID = @PersonID, UserName = @UserName, 
+                                    Password = @Password, IsActive = @IsActive
+                                    WHERE UserID = @UserID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+                    command.Parameters.AddWithValue("@UserName", UserName);
+                    command.Parameters.AddWithValue("@Password", Password);
+                    command.Parameters.AddWithValue("@IsActive", IsActive);
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    IsUpdated = rowsAffected > 0;
+                }
+            }
+            return IsUpdated;
+        }
+        public static bool Delete(int UserID)
+        {
+            bool IsDeleted = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"DELETE FROM Users WHERE UserID = @UserID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    IsDeleted = rowsAffected > 0;
+                }
+            }
+            return IsDeleted;
+        }
+        public static bool GetUserData(int UserID,ref int PersonID,ref string UserName,ref string Password,ref bool IsActive)
+        {
+            bool IsFound = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"SELECT * FROM Users WHERE UserID = @UserID;";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            IsFound = true;
+                            PersonID = reader.GetInt32(reader.GetOrdinal("PersonID"));
+                            UserName = reader.GetString(reader.GetOrdinal("UserName"));
+                            Password = reader.GetString(reader.GetOrdinal("Password"));
+                            IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"));
+                        }
+                    }
+                }
+            }
+            return IsFound;
+        }
+        public static bool GetUserData(string UserName, ref int PersonID, ref int UserID, ref string Password, ref bool IsActive)
+        {
+            bool IsFound = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"SELECT * FROM Users WHERE UserName = @UserName;";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserName", UserName);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            IsFound = true;
+                            PersonID = reader.GetInt32(reader.GetOrdinal("PersonID"));
+                            UserID = reader.GetInt32(reader.GetOrdinal("UserID"));
+                            Password = reader.GetString(reader.GetOrdinal("Password"));
+                            IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"));
+                        }
+                    }
+                }
+            }
+            return IsFound;
+        }
+        public static bool IsUserExists(int UserID)
+        {
+            bool IsExists = false;
+            using(SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"SELECT 1 FROM Users WHERE UserID = @UserID;";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    IsExists = (result != null);
+                }
+            }
+            return IsExists;
+        }
+        public static bool IsUserExists(string UserName)
+        {
+            bool IsExists = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.ConnectionStr))
+            {
+                string query = @"SELECT 1 FROM Users WHERE UserName = @UserName;";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserName", UserName);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    IsExists = (result != null);
+                }
+            }
+            return IsExists;
+        }
+    }
+}

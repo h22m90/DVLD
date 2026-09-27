@@ -1,0 +1,6 @@
+C:\CodeHub\Code\Course-19\DVLD\DAL\bin\Debug\DAL.dll
+C:\CodeHub\Code\Course-19\DVLD\DAL\bin\Debug\DAL.pdb
+C:\CodeHub\Code\Course-19\DVLD\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\CodeHub\Code\Course-19\DVLD\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\CodeHub\Code\Course-19\DVLD\DAL\obj\Debug\DAL.dll
+C:\CodeHub\Code\Course-19\DVLD\DAL\obj\Debug\DAL.pdb

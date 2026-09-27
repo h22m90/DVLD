@@ -1,0 +1,83 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{06AC45DE-99F7-4030-8AFC-FF6DBCC5BFED}|DVLD_Project.csproj|c:\\codehub\\code\\course-19\\dvld\\dvld_project\\applications\\local driving license\\frmaddupdateldl_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06AC45DE-99F7-4030-8AFC-FF6DBCC5BFED}|DVLD_Project.csproj|solutionrelative:applications\\local driving license\\frmaddupdateldl_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06AC45DE-99F7-4030-8AFC-FF6DBCC5BFED}|DVLD_Project.csproj|C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\applications\\local driving license\\frmaddupdateldl_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{06AC45DE-99F7-4030-8AFC-FF6DBCC5BFED}|DVLD_Project.csproj|solutionrelative:applications\\local driving license\\frmaddupdateldl_application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06AC45DE-99F7-4030-8AFC-FF6DBCC5BFED}|DVLD_Project.csproj|C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\users\\frmaddupdateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06AC45DE-99F7-4030-8AFC-FF6DBCC5BFED}|DVLD_Project.csproj|solutionrelative:users\\frmaddupdateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5039D2C-8B40-4F37-A855-CDF92433B4B8}|..\\DAL\\DAL.csproj|c:\\codehub\\code\\course-19\\dvld\\dal\\connectionstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 281,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmAddUpdateUser.cs",
+              "DocumentMoniker": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\Users\\frmAddUpdateUser.cs",
+              "RelativeDocumentMoniker": "Users\\frmAddUpdateUser.cs",
+              "ToolTip": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\Users\\frmAddUpdateUser.cs",
+              "RelativeToolTip": "Users\\frmAddUpdateUser.cs",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAjwKAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T16:18:42.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAddUpdateLDL_Application.cs",
+              "DocumentMoniker": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs",
+              "RelativeDocumentMoniker": "Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs",
+              "ToolTip": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs",
+              "RelativeToolTip": "Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAuwIwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T07:43:24.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConnectionString.cs",
+              "DocumentMoniker": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DAL\\ConnectionString.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\ConnectionString.cs",
+              "ToolTip": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DAL\\ConnectionString.cs",
+              "RelativeToolTip": "..\\DAL\\ConnectionString.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-23T12:57:56.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmAddUpdateLDL_Application.cs [Design]",
+              "DocumentMoniker": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs",
+              "RelativeDocumentMoniker": "Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs",
+              "ToolTip": "C:\\CodeHub\\Code\\Course-19\\DVLD\\DVLD_Project\\Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs [Design]",
+              "RelativeToolTip": "Applications\\Local Driving License\\frmAddUpdateLDL_Application.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T07:43:21.597Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
